@@ -1,0 +1,124 @@
+@use "variables" as *;
+
+// Reset
+@use "normalize" as *;
+@use "base" as *;
+@use "mixins" as *;
+@use "sass:map";
+
+/*
+h1 {
+    color: map.get(map.get($colors, "primary"), "blue");
+    @include breakpoint(desktop){
+        color: red;
+    }
+}
+
+
+p{
+    color: map.get(map.get($colors, "secondary"), "green");
+
+}*/
+body{
+    background-color: map.get(map.get($colors, "primary"), "black");
+    
+    article{
+        width: 90%;
+        height: 100%;
+        margin: 0 auto;
+        @include breakpoint(tablethorizontal){
+            width: 85%;
+        }
+        
+        section.menu{
+            width: 100%;
+            height: 15%;
+            display: flex;
+            gap: 45%;
+            align-items: center;
+            a{
+                font-size: .9em;
+                text-decoration: none;
+                color: map.get(map.get($colors, "neutral"), "lightgray");
+            }
+            
+            a.logo{
+                font-family: $font-family-secondary;
+                font-weight: 600;
+                font-size: 2em;
+                color: map.get(map.get($colors, "neutral"), "white");
+                span{
+                    color: map.get(map.get($colors, "primary"), "purple");
+                }
+            }
+            nav{
+                ul{
+                    display: flex;
+                    gap: 20%;
+                    a:hover{
+                        padding-bottom: 5px;
+                        color: map.get(map.get($colors, "neutral"), "white");
+                        border-bottom: 4px solid map.get(map.get($colors, "primary"), "purple"); 
+                    }
+                }
+            }
+        }
+
+        section.main{
+            width: 100%;
+            margin-top: 2%;
+            color: map.get(map.get($colors, "neutral"), "white");
+            display: flex;
+            div.text{
+                width: 100%;
+                h2{
+                    margin-top: 4%;
+                    font-family: $font-family-secondary;
+                    font-size: 4.6em;
+                    line-height: 1;
+                    font-weight: 50;
+                }
+                p{
+                    color: map.get(map.get($colors, "neutral"), "lightgray");
+                }
+                button{
+                    background-color: map.get(map.get($colors, "primary"), "purple");
+                    padding: 1.5% 5%;
+                    border-top-left-radius: 10px;
+                    border-top-right-radius: 10px;
+                    border-bottom-right-radius: 10px;
+                }
+                a{
+                    margin-left: 3%;
+                    color: map.get(map.get($colors, "neutral"), "white");
+                }
+                div.footer{
+                    margin-top: 10%;
+                    display: flex;
+                    gap: 2%;
+                    div{
+                        display: flex;
+                        gap: 10%;
+                        img{
+                            height: 70%;
+                        }
+                        p{
+                            color: map.get(map.get($colors, "neutral"), "white");
+                        }
+                    }
+                }
+            }
+            
+            div.img{
+                position: relative;
+                width: 100%;
+                height: 550px;
+                background-image: url(../../img/content.png);
+                background-repeat: no-repeat;
+                background-position: top left;
+                background-size: contain;
+            }
+        }
+    }
+}
+
